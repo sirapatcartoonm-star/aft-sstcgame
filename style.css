@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mali:wght@400;500;600;700&display=swap');
+
+:root {
+    --coral: #ff202b;
+    --pink: #f1dd6a;
+    --peach: #ffb08e;
+    --cream: #fffb9f;
+    --orange: #ffa242;
+    --aqua: #a0e8e8;
+    --mint: #87febc;
+    --ink: #24333a;
+    --paper: #fffdf1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Mali", "Tahoma", sans-serif; }
+
+body {
+    min-height: 100vh;
+    background-color: var(--paper);
+    background-image: radial-gradient(#f1dd6a 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    padding: clamp(14px, 3vw, 34px);
+}
+
+.game {
+    width: min(100%, 1120px);
+    background: rgba(255, 255, 255, .94);
+    border: 3px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 9px 9px 0 var(--coral);
+    padding: clamp(22px, 4vw, 44px);
+    text-align: center;
+}
+
+h1, .summary-title, .category-card, .team, .control-btn, .current-category, #province {
+    font-family: "Baloo 2", "Mali", sans-serif;
+}
+
+h1 { color: var(--coral); font-size: clamp(2.35rem, 6vw, 4.6rem); line-height: .95; }
+
+.eyebrow {
+    color: var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.subtitle { color: #65737a; font-size: clamp(.92rem, 2vw, 1.12rem); margin: 12px auto 28px; }
+
+.category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 2vw, 18px); }
+
+.category-card {
+    min-height: 155px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 var(--ink);
+    color: var(--ink);
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    font-weight: 800;
+    cursor: pointer;
+    padding: 18px 10px;
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.category-card .cat-emoji { display: block; font-size: clamp(2.4rem, 5vw, 3.5rem); line-height: 1; margin-bottom: 9px; }
+.category-card:hover, .category-card:focus-visible { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.category-card:focus-visible, .team:focus-visible, .control-btn:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+.category-card:active, .team:active, .control-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+
+#gamePage, #summaryPage { display: none; }
+
+.current-category {
+    display: inline-block;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+    color: var(--ink);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 800;
+    margin-bottom: 22px;
+    padding: 7px 18px;
+}
+
+.province-box {
+    align-items: center;
+    background: var(--cream);
+    border: 3px dashed var(--coral);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: clamp(180px, 28vw, 280px);
+    margin-bottom: 24px;
+    padding: 20px;
+}
+
+#province { color: var(--ink); font-size: clamp(2.4rem, 8vw, 5.8rem); font-weight: 800; line-height: 1.08; overflow-wrap: anywhere; }
+
+.buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+
+.team {
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 var(--ink);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+    font-weight: 800;
+    min-height: 122px;
+    padding: 16px 10px;
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.team:hover, .team:focus-visible { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.team-name { display: block; }
+.green { background: var(--mint); }
+.blue { background: var(--aqua); }
+.yellow { background: var(--pink); }
+.score { font-size: .9rem; font-weight: 600; margin-top: 8px; }
+.score span { font-family: "Baloo 2", sans-serif; font-size: 1.65rem; font-weight: 800; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.control-btn {
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 11px 17px;
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.control-btn:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.next { background: var(--coral); color: white; }
+.summary { background: var(--orange); }
+.reset { background: var(--pink); }
+.switch { background: var(--aqua); }
+.counter { color: #65737a; font-size: .95rem; font-weight: 600; margin-top: 20px; }
+.counter span { color: var(--coral); font-family: "Baloo 2", sans-serif; font-size: 1.5rem; font-weight: 800; }
+
+.summary-title { color: var(--coral); font-size: clamp(2.25rem, 6vw, 4rem); font-weight: 800; margin-bottom: 25px; }
+.final-scores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.final-card { border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); color: var(--ink); padding: 24px 12px; }
+.final-card.green { background: var(--mint); }
+.final-card.blue { background: var(--aqua); }
+.final-card.yellow { background: var(--pink); }
+.final-card h2 { font-family: "Baloo 2", sans-serif; font-size: clamp(1.3rem, 3vw, 1.75rem); }
+.final-score { font-family: "Baloo 2", sans-serif; font-size: clamp(3.5rem, 8vw, 5rem); font-weight: 800; line-height: 1; margin: 10px 0; }
+.rank { color: var(--coral); font-family: "Baloo 2", sans-serif; font-size: clamp(1.45rem, 4vw, 2.3rem); font-weight: 800; margin-top: 28px; }
+
+@media (max-width: 760px) {
+    .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .category-card { min-height: 130px; }
+    .buttons, .final-scores { grid-template-columns: 1fr; }
+    .team { min-height: 88px; }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; }
+    .control-btn { width: 100%; }
+}
+
+@media (max-width: 410px) {
+    body { padding: 12px; }
+    .game { box-shadow: 5px 5px 0 var(--coral); padding: 20px 16px; }
+    .category-grid { gap: 9px; }
+    .category-card { min-height: 116px; padding: 14px 7px; }
+    .controls { grid-template-columns: 1fr; }
+}

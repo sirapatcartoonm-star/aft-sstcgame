@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เกมทายคำ สนุกสดใส</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game">
+
+    <!-- หน้าเลือกหมวดหมู่ -->
+    <div id="categoryPage">
+
+        <div class="eyebrow">WORD PARTY</div>
+        <h1>เกมทายคำ</h1>
+        <div class="subtitle">เลือกหมวด แล้วเริ่มแข่งตอบคำกันเลย</div>
+
+        <div class="category-grid" id="categoryGrid">
+            <!-- ปุ่มหมวดหมู่จะถูกสร้างด้วย JavaScript -->
+        </div>
+
+    </div>
+
+
+    <!-- หน้าเกม -->
+    <div id="gamePage">
+
+        <div class="eyebrow">LET'S PLAY</div>
+        <h1>เกมทายคำ</h1>
+        <div class="subtitle">ทายให้ถูก แล้วแตะทีมที่ตอบถูก</div>
+
+        <div class="current-category" id="currentCategory"></div>
+
+        <div class="province-box">
+            <div id="province">กดเริ่มเกม</div>
+        </div>
+
+        <div class="buttons">
+
+            <button class="team green" onclick="addScore('green')">
+                <span class="team-name">🟢 สีเขียว</span>
+                <div class="score"><span id="greenScore">0</span> คะแนน</div>
+            </button>
+
+            <button class="team blue" onclick="addScore('blue')">
+                <span class="team-name">🔵 สีฟ้า</span>
+                <div class="score"><span id="blueScore">0</span> คะแนน</div>
+            </button>
+
+            <button class="team yellow" onclick="addScore('yellow')">
+                <span class="team-name">🟡 สีเหลือง</span>
+                <div class="score"><span id="yellowScore">0</span> คะแนน</div>
+            </button>
+
+        </div>
+
+        <div class="controls">
+
+            <button class="control-btn next" onclick="nextProvince()">
+                ▶ เริ่ม / ข้อถัดไป
+            </button>
+
+            <button class="control-btn switch" onclick="backToCategories()">
+                🔀 เปลี่ยนหมวดหมู่
+            </button>
+
+            <button class="control-btn summary" onclick="showSummary()">
+                🏆 สรุปคะแนน
+            </button>
+
+            <button class="control-btn reset" onclick="resetGame()">
+                🔄 เริ่มใหม่
+            </button>
+
+        </div>
+
+        <div class="counter">
+            ข้อที่ <span id="questionNumber">0</span>
+        </div>
+
+    </div>
+
+
+    <!-- หน้าสรุป -->
+    <div id="summaryPage">
+
+        <div class="summary-title">🏆 สรุปคะแนน</div>
+
+        <div class="final-scores">
+
+            <div class="final-card green">
+                <h2>🟢 สีเขียว</h2>
+                <div class="final-score" id="finalGreen">0</div>
+                <div>คะแนน</div>
+            </div>
+
+            <div class="final-card blue">
+                <h2>🔵 สีฟ้า</h2>
+                <div class="final-score" id="finalBlue">0</div>
+                <div>คะแนน</div>
+            </div>
+
+            <div class="final-card yellow">
+                <h2 style="color:#222;">🟡 สีเหลือง</h2>
+                <div class="final-score" id="finalYellow">0</div>
+                <div style="color:#222;">คะแนน</div>
+            </div>
+
+        </div>
+
+        <div class="rank" id="winner"></div>
+
+        <div class="controls" style="margin-top:30px;">
+            <button class="control-btn next" onclick="backToGame()">
+                ← กลับไปเล่นต่อ
+            </button>
+
+            <button class="control-btn reset" onclick="resetGame()">
+                🔄 เริ่มเกมใหม่
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
